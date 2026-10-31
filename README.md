@@ -10,7 +10,6 @@ In Persian mythology, the **Homay** (Huma bird) is a legendary bird of good fort
 <p align="center">
   <img src="media/Homay in Iranian mythology.png" alt="Persian Homay Sculpture" width="400"/>
   <br>
-  <em>Figure 1: Traditional depiction of the Homay bird at Persepolis.</em>
 </p>
 
 ---
@@ -20,12 +19,10 @@ In Persian mythology, the **Homay** (Huma bird) is a legendary bird of good fort
 <p align="center">
   <img src="media/gif on shoulder (2).gif" alt="Project Homay Live Demo" width="550"/>
   <br>
-  <em>Figure 2: Real-time shoulder mounting and functional grip demonstration.</em>
 </p>
 <p align="center">
   <img src="media/Homay animation on shoulder.gif" alt="Project Homay Live Demo" width="550"/>
   <br>
-  <em>Figure 2: Real-time shoulder mounting and functional grip demonstration.</em>
 </p>
 
 - **Wearable Morphology:** Macaw-inspired zygodactyl clamping mechanism structured ergonomically over the shoulder.
