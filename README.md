@@ -1,6 +1,10 @@
 # 🦅 Project-Homay-Wearable-Gripper
 Bio-inspired, single-actuator voice-controlled wearable shoulder gripper featuring macaw zygodactyl kinematics and offline TinyML speech recognition
-![homay](https://github.com/user-attachments/assets/99af5759-5368-4220-a7e8-d6614a599d62)
+<p align="center">
+  <img src="media/gif on shoulder.gif" alt="Project Homay Live Demo" width="550"/>
+  <br>
+  <em>Figure 2: Real-time offline voice control and shoulder mounting demonstration.</em>
+</p>
 
 ## 📷 System Overview & Demo
 - **Wearable Morphology:** Macaw-inspired zygodactyl clamping mechanism structured over the clavicle.
