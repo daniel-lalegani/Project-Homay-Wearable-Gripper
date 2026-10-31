@@ -107,3 +107,11 @@ The lightweight, single-actuator adaptive mechanism of Project Homay provides a 
 B.Sc. Student in Mechanical Engineering, Politecnico di Torino  
 - **Email:** daniellalegani@gmail.com 
 - **LinkedIn:** https://www.linkedin.com/in/daniel-lalegani-9071b2329
+
+## 📜 License
+
+This project is open-source and dual-licensed:
+- **Software & Firmware:** Distributed under the [MIT License](LICENSE).
+- **Hardware, 3D CAD Models & Schematics:** Distributed under the [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) License.
+
+*Copyright (c) 2026 Daniel Lalegani. All rights reserved for original mechanism morphology and design.*
