@@ -2,8 +2,6 @@
 Bio-inspired, single-actuator voice-controlled wearable shoulder gripper featuring macaw zygodactyl kinematics and offline TinyML speech recognition
 <p align="center">
   <img src="media/gif on shoulder.gif" alt="Project Homay Live Demo" width="550"/>
-  <br>
-  <em>Figure 2: Real-time offline voice control and shoulder mounting demonstration.</em>
 </p>
 
 ## 📷 System Overview & Demo
@@ -11,6 +9,9 @@ Bio-inspired, single-actuator voice-controlled wearable shoulder gripper featuri
 <img width="960" height="695" alt="960px-Scarlet_Macaw_(Ara_macao)_-Houston_Zoo-8" src="https://github.com/user-attachments/assets/e6facfa1-ffd3-494c-901e-8c34a0fb7f3b" />
 
 - **Zero-Power Holding:** Single power-screw actuator connected to a 4-tendon dynamic tension distribution tree.
+<p align="center">
+  <img src="media/differential force distributor.gif" alt="mechanism" width="550"/>
+</p>
 - **Offline TinyML:** Edge Impulse keyword spotter running locally on an ESP32-S3-supermini microcontroller.
 - **Tissue Safety:** INA219 current sensor closed-loop feedback for stall detection (>210 mA threshold).
 
