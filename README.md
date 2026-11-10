@@ -1,117 +1,96 @@
-# 🦅 Project Homay: Voice-Controlled Wearable Shoulder Gripper
+# Project Homay — Bio-Inspired Wearable Robotic Gripper
 
-> *Bio-inspired, single-actuator voice-controlled wearable shoulder gripper featuring macaw zygodactyl kinematics and offline TinyML speech recognition.*
+*A lightweight, shoulder-mounted gripper built around a single actuator and a custom four-tendon mechanism.*
 
----
+Homay is a robotic gripper I designed and built to explore how a compact mechanism can adapt to different object shapes while sitting on a person's shoulder. The current version is a working prototype, controlled by two offline voice commands. It is not a medical device or an autonomous flying robot.
 
-## 🏛️ Cultural Inspiration & Etymology
-In Persian mythology, the **Homay** (Huma bird) is a legendary bird of good fortune and sovereignty, often depicted perching majestically on the shoulders of individuals. This project modernizes this mythological concept into a functional, shoulder-mounted bio-inspired mechatronic assistant.
-
-<p align="center">
-  <img src="media/Homay in Iranian mythology.png" alt="Persian Homay Sculpture" width="400"/>
-  <br>
-</p>
-
----
-
-## 📷 System Overview & Bio-Inspiration
+## Demo
 
 <p align="center">
-  <img src="media/gif on shoulder (2).gif" alt="Project Homay Live Demo" width="550"/>
-  <br>
+  <img src="media/gif on shoulder (2).gif" alt="Homay prototype mounted on a shoulder" width="550" />
 </p>
+
 <p align="center">
-  <img src="media/Homay animation on shoulder.gif" alt="Project Homay Live Demo" width="550"/>
-  <br>
+  <img src="media/mechanism (2).gif" alt="Physical gripping mechanism in motion" width="450" />
 </p>
 
-- **Wearable Morphology:** Macaw-inspired zygodactyl clamping mechanism structured ergonomically over the shoulder.
-  <p align="center">
-    <img src="https://github.com/user-attachments/assets/e6facfa1-ffd3-494c-901e-8c34a0fb7f3b" alt="Scarlet Macaw Shoulder Perching" width="350"/>
-    <br>
-    <sub>Photo credit: <a href="https://commons.wikimedia.org/wiki/File:Scarlet_Macaw_(Ara_macao)_-Houston_Zoo-8.jpg">Kitten Fleming</a>, <a href="https://creativecommons.org/licenses/by/2.0">CC BY 2.0</a>, via Wikimedia Commons</sub>
-  </p>
+## How it works
 
-- **Zero-Power Holding & Adaptive Grip:** A single power-screw actuator connected to a 4-tendon **differential force distributor** (floating equalization tree), enabling dynamic force distribution and passive holding with zero electrical power consumption.
-  <table border="0">
-    <tr>
-      <td align="center" width="50%">
-        <img src="media/mechanism (2).gif" alt="Real Mechanism Demo" width="100%"/>
-        <br>
-        <sub><b>Mechanism Execution:</b> Physical linkage response.</sub>
-      </td>
-      <td align="center" width="50%">
-        <img src="media/differential force distributor.gif" alt="Differential Force Distributor" width="100%"/>
-        <br>
-        <sub><b>Kinematic Kinetics:</b> Floating tendon differential tree.</sub>
-      </td>
-    </tr>
-  </table>
+### Bird-inspired design
 
-- **Offline TinyML Speech Recognition:** Edge Impulse keyword spotter running locally on an ESP32-S3 SuperMini microcontroller for low-latency, privacy-preserving voice execution ('Grip' / 'Loose').
-- **Tissue Safety & Overheat Prevention:** Closed-loop current feedback using an INA219 sensor for immediate stall detection (>210 mA threshold) to protect soft tissues and prevent motor overheating.
+I took inspiration from the gripping arrangement of a macaw's feet when developing the four gripping arms. The structure is 3D-printed in PETG and designed to mount over the shoulder.
 
----
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/e6facfa1-ffd3-494c-901e-8c34a0fb7f3b" alt="Macaw gripping a branch" width="340" />
+</p>
 
-## 🛠️ Hardware & Electronics Architecture
+<sub>Photo: [Kitten Fleming](https://commons.wikimedia.org/wiki/File:Scarlet_Macaw_(Ara_macao)_-Houston_Zoo-8.jpg), [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/).</sub>
 
-| Component | Specification / Function |
-| :--- | :--- |
-| **Microcontroller** | ESP32-S3 SuperMini (TinyML inference & control) |
-| **Microphone** | INMP441 Omnidirectional MEMS (I2S digital audio pipeline) |
-| **Current Sensor** | INA219 High-Side DC Sensor (Closed-loop safety monitor) |
-| **Motor Driver** | DRV8833 Dual H-Bridge |
-| **Actuator** | Single N20 DC Gear Motor with Integrated Power-Screw |
-| **Structural Frame** | PETG 3D-Printed Linkages & Clavicular Mount |
+### Single-actuator, four-tendon mechanism
 
----
+One N20 geared motor turns a power screw that drives the gripper. Rather than using a separate motor for each gripping arm, I designed a movable tendon-distribution assembly.
 
-## 📊 Prototype v1.0 Evaluation & Engineering Roadmap
+Four tendons connect near the four corners of the **yellow crossbar** in the CAD animation. They run downward through the mechanism to the gripping arms below. The crossbar is supported by a joint-like assembly that allows it to rotate about **two axes**. When an arm meets resistance from an object, the crossbar can tilt so the remaining arms can adjust to its shape.
 
-### 🟢 Strengths of Prototype v1.0
-- **Adaptive Mechanical Grip:** The differential force distributor successfully conforms to irregular object geometries using a single actuator.
-- **Passive Energy Efficiency:** Power-screw locking mechanism completely eliminates static power consumption when holding objects.
-- **Robust Local Audio Processing:** The ESP32-S3 offline TinyML model operates reliably without needing Wi-Fi or external cloud infrastructure.
+I developed this configuration independently while working through the problem of driving four tendons with one actuator. I am not claiming that the arrangement is unique in the robotics literature, or that it produces equal tension in all four tendons; those properties have not been established by measurement.
 
-### 🔴 Limitations & Planned Engineering Solutions (v2.0)
-1. **Mass & Dimensions Minimization:**
-   - *Limitation:* Prototype v1.0 weighs **162 grams** with an acceptable footprint, but further footprint reduction is needed for extended daily wearability.
-   - *v2.0 Solution:* Optimize frame topology, downsize battery capacity, and consolidate discrete electronics onto a single custom PCB to significantly minimize volume and mass.
-2. **Grip Force Optimization without Added Weight:**
-   - *Limitation:* Clamping force is constrained by current tendon leverage ratios.
-   - *v2.0 Solution:* Enhance mechanical advantage **without increasing motor mass or upgrading the actuator** by relocating leg pivot axes to increase the moment arm (distance between tendon anchor and pivot fulcrum) and applying high-friction/sticky elastomeric material to claw tips.
+<p align="center">
+  <img src="media/differential force distributor.gif" alt="CAD animation: yellow tendon crossbar on two-axis articulated support" width="500" />
+</p>
 
----
+*Yellow: four tendon attachment points. The tendons route downward to the gripping arms. The support permits tilting about two rotational axes.*
 
-## 🚀 Potential Future Applications
+The power screw can also hold the gripper's position without continuous **motor drive**. The electronics may still consume power.
 
-The lightweight, single-actuator adaptive mechanism of Project Homay provides a versatile platform across multiple domain fields:
+### Voice control and motor shut-off
 
-1. **Personal Shoulder Assistant & Companion Robot:**
-   - Serves as a wearable, hands-free robotic assistant perching on the shoulder to hold tools, assist in daily tasks, and interact with the immediate environment.
-2. **Assistive Robotics for Disabled & Visually Impaired Users:**
-   - Functions as an intelligent sensor module for blind or visually impaired individuals, providing real-time environmental monitoring, hazard detection, and active accident prevention.
-3. **Aerial Robotics & Drone Perching Mechanisms:**
-   - **Drone Payload Gripper:** Serves as a ultra-lightweight grasping module for aerial object pickup and delivery.
-   - **Uneven Terrain Landing Gear:** Enables UAVs to securely perch on tree branches, pipes, or rough, unstructured terrain using zero-power holding mechanics.
-4. **Wearable Videography & Camera Stabilization:**
-   - Acts as an adaptive, voice-controlled shoulder mount for automated camera tracking and stabilization during movement.
-5. **Search & Rescue / Hazardous Inspection:**
-   - Serves as a perching or clamping sensor-carrying end-effector for mobile inspection robots operating in tight or hazardous structures.
+An **ESP32-S3** runs an offline keyword-recognition model developed with **Edge Impulse**. An INMP441 microphone captures the commands **“grip”** and **“loose”**, and a DRV8833 driver operates the motor.
 
----
+An INA219 current sensor is used to stop the motor when the measured current crosses a configured threshold (approximately **210 mA** in v1.0). This is an experimental overload response, **not** a validated tissue-force or medical safety system.
 
-## 👤 Author
+## Hardware
 
-**Daniel Lalegani**  
-B.Sc. Student in Mechanical Engineering, Politecnico di Torino  
-- **Email:** daniellalegani@gmail.com 
-- **LinkedIn:** https://www.linkedin.com/in/daniel-lalegani-9071b2329
+| Component | Purpose |
+|---|---|
+| ESP32-S3 SuperMini | Microcontroller for local speech inference and motor control |
+| INMP441 I2S microphone | Audio input |
+| INA219 current sensor | Current monitoring for the motor shut-off rule |
+| DRV8833 | DC motor driver |
+| N20 geared DC motor + power screw | Single mechanical actuator and passive position holding |
+| PETG 3D-printed parts | Gripping arms, articulated assembly, and shoulder-mounted structure |
 
-## 📜 License
+**Software:** Edge Impulse for keyword-model development; firmware running locally on the ESP32-S3. Edge Impulse is a software development platform, not a physical hardware component.
 
-This project is open-source and dual-licensed:
-- **Software & Firmware:** Distributed under the [MIT License](LICENSE).
-- **Hardware, 3D CAD Models & Schematics:** Distributed under the [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) License.
+**Prototype mass:** 162 g (v1.0, as measured/reported during the build).
 
-*Copyright (c) 2026 Daniel Lalegani. All rights reserved for original mechanism morphology and design.*
+## What works, and what needs improvement
+
+The prototype demonstrates motion of all four gripping arms with a single motor, mechanical adaptation around different object shapes, local voice control, and position holding without continuously powering the motor.
+
+The main limitation is **grip strength**. I plan to enhance mechanical advantage without increasing motor mass or upgrading the actuator by relocating leg pivot axes to increase the moment arm (distance between tendon anchor and pivot fulcrum) and applying high-friction/sticky elastomeric material to claw tips. The assembly could also be smaller and lighter with optimizing frame topology, downsizing battery capacity, and consolidating discrete electronics onto a single custom PCB.
+
+These observations are qualitative demonstrations. Controlled measurements of grip performance and speech-command recognition have **not yet been reported**. The shoulder mounting, contact forces and long-term comfort have not been clinically or formally safety-tested.
+
+## Next steps
+
+- Improve the gripping geometry and fingertip contact materials without unnecessarily increasing motor mass.
+- Reduce the assembly's footprint and consolidate the electronics.
+- Measure voice-command accuracy and response latency under defined conditions.
+- Explore tactile sensing and feedback to the wearer as a possible future extension; this has **not** been implemented.
+
+A separate [vision document](VISION_HOMAY.md) explores a bird-like embodied robotic companion as a **long-term concept**, not as a capability of this prototype.
+
+## Why “Homay”?
+
+In Persian mythology, the **Homay (Huma)** is a legendary bird associated with good fortune and sometimes portrayed near a person's shoulder. I chose the name because it connects the project's bird-inspired form with the idea of a small shoulder-mounted assistant.
+
+<p align="center">
+  <img src="media/Homay in Iranian mythology.png" alt="Homay in Iranian mythology" width="340" />
+</p>
+
+## Author and licensing
+
+**Daniel Lalegani** — Mechanical Engineering undergraduate, Politecnico di Torino  
+[GitHub](https://github.com/daniel-lalegani) · [LinkedIn](https://www.linkedin.com/in/daniel-lalegani-9071b2329)
+
+Firmware/software: [MIT License](LICENSE), where covered by the repository licence file. Hardware/CAD documentation: intended to be shared under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); individual released files should identify their applicable terms. Third-party images retain their original licences.
