@@ -11,7 +11,8 @@ Homay is a robotic gripper I designed and built to explore how a compact mechani
 </p>
 
 <p align="center">
-  <img src="media/mechanism (2).gif" alt="Physical gripping mechanism in motion" width="450" />
+  <img src="media/Homay animation on shoulder.gif" alt="Project Homay Live Demo" width="550"/>
+  <br>
 </p>
 
 ## How it works
@@ -34,9 +35,20 @@ Four tendons connect near the four corners of the **yellow crossbar** in the CAD
 
 I developed this configuration independently while working through the problem of driving four tendons with one actuator. I am not claiming that the arrangement is unique in the robotics literature, or that it produces equal tension in all four tendons; those properties have not been established by measurement.
 
-<p align="center">
-  <img src="media/differential force distributor.gif" alt="CAD animation: yellow tendon crossbar on two-axis articulated support" width="500" />
-</p>
+ <table border="0">
+    <tr>
+      <td align="center" width="50%">
+        <img src="media/mechanism (2).gif" alt="Real Mechanism Demo" width="100%"/>
+        <br>
+        <sub><b>Mechanism Execution:</b> Physical linkage response.</sub>
+      </td>
+      <td align="center" width="50%">
+        <img src="media/differential force distributor.gif" alt="Differential Force Distributor" width="100%"/>
+        <br>
+        <sub><b>Kinematic Kinetics:</b> Floating tendon differential tree.</sub>
+      </td>
+    </tr>
+  </table>
 
 *Yellow: four tendon attachment points. The tendons route downward to the gripping arms. The support permits tilting about two rotational axes.*
 
