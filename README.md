@@ -88,7 +88,7 @@ These observations are qualitative demonstrations. Controlled measurements of gr
 - Measure voice-command accuracy and response latency under defined conditions.
 - Explore tactile sensing and feedback to the wearer as a possible future extension; this has **not** been implemented.
 
-A separate [vision document](VISION_HOMAY.md) explores a bird-like embodied robotic companion as a **long-term concept**, not as a capability of this prototype.
+A separate [vision document](Homay-Vision.md) explores a bird-like embodied robotic companion as a **long-term concept**, not as a capability of this prototype.
 
 ## Why “Homay”?
 
