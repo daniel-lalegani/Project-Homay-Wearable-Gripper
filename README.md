@@ -2,7 +2,7 @@
 
 *A lightweight, shoulder-mounted gripper built around a single actuator and a custom four-tendon mechanism.*
 
-Homay is a robotic gripper I designed and built to explore how a compact mechanism can adapt to different object shapes while sitting on a person's shoulder. The current version is a working prototype, controlled by two offline voice commands. It is not a medical device or an autonomous flying robot.
+Homay is a robotic gripper I designed and built to explore how **a compact mechanism** can **adapt** to different object shapes while sitting on a person's shoulder. The current version is a working prototype, **controlled by two offline voice commands**. It is not a medical device or an autonomous flying robot.
 
 ## Demo
 
@@ -31,7 +31,7 @@ I took inspiration from the gripping arrangement of a macaw's feet when developi
 
 One N20 geared motor turns a power screw that drives the gripper. Rather than using a separate motor for each gripping arm, I designed a movable tendon-distribution assembly.
 
-Four tendons connect near the four corners of the **yellow crossbar** in the CAD animation. They run downward through the mechanism to the gripping arms below. The crossbar is supported by a joint-like assembly that allows it to rotate about **two axes**. When an arm meets resistance from an object, the crossbar can tilt so the remaining arms can adjust to its shape.
+Four tendons connect near the four corners of the **yellow crossbar** in the CAD animation. They run downward through the mechanism to the gripping arms below. The crossbar is supported by a joint-like assembly that allows it to rotate about two axes. When an arm meets resistance from an object, the crossbar can tilt so the remaining arms can adjust to its shape.
 
 I developed this configuration independently while working through the problem of driving four tendons with one actuator. I am not claiming that the arrangement is unique in the robotics literature, or that it produces equal tension in all four tendons; those properties have not been established by measurement.
 
@@ -50,9 +50,7 @@ I developed this configuration independently while working through the problem o
     </tr>
   </table>
 
-*Yellow: four tendon attachment points. The tendons route downward to the gripping arms. The support permits tilting about two rotational axes.*
-
-The power screw can also hold the gripper's position without continuous **motor drive**. The electronics may still consume power.
+The power screw can also hold the gripper's position **without continuous motor drive**. The electronics may still consume power.
 
 ### Voice control and motor shut-off
 
@@ -79,7 +77,7 @@ An INA219 current sensor is used to stop the motor when the measured current cro
 
 The prototype demonstrates motion of all four gripping arms with a single motor, mechanical adaptation around different object shapes, local voice control, and position holding without continuously powering the motor.
 
-The main limitation is **grip strength**. I plan to enhance mechanical advantage without increasing motor mass or upgrading the actuator by relocating leg pivot axes to increase the moment arm (distance between tendon anchor and pivot fulcrum) and applying high-friction/sticky elastomeric material to claw tips. The assembly could also be smaller and lighter with optimizing frame topology, downsizing battery capacity, and consolidating discrete electronics onto a single custom PCB.
+The main limitation is grip strength. I plan to enhance mechanical advantage without increasing motor mass or upgrading the actuator by relocating leg pivot axes to increase the moment arm (distance between tendon anchor and pivot fulcrum) and applying high-friction/sticky elastomeric material to claw tips. The assembly could also be smaller and lighter with optimizing frame topology, downsizing battery capacity, and consolidating discrete electronics onto a single custom PCB.
 
 These observations are qualitative demonstrations. Controlled measurements of grip performance and speech-command recognition have **not yet been reported**. The shoulder mounting, contact forces and long-term comfort have not been clinically or formally safety-tested.
 
